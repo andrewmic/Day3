@@ -3,7 +3,9 @@ package swedbank.it.academy.domain;
 public class RealEstateLoan extends Loan{
     private String district;
     private float area;
+    //"purpose" should be of "RealEstatePurpose" type
     private String purpose;
+    //Same as with Loan class - DON'T USE GLOBAL CLASS LEVEL COUNTERS EVER! EVER!!!
     public static int personalRealEstateLoans = 0;
 
 
