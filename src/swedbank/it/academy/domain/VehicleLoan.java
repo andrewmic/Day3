@@ -7,6 +7,7 @@ public class VehicleLoan extends Loan{
     private Date manufactured;
     private String model;
     private int maximumAge;
+    //Same as with Loan class - DON'T USE GLOBAL CLASS LEVEL COUNTERS EVER! EVER!!!
     public static int normalRiskVehicleLoansCounter = 0;
     public static int expiredHighRiskVehicleLoansCounter = 0;
     public static int highestDuration = 0;
@@ -31,6 +32,7 @@ public class VehicleLoan extends Loan{
         return maximumAge;
     }
 
+    //I believe age should be a calculated value (diff. in years from "manufactured" date and today) :)
     public int getAge() {
         return maximumAge;
     }
@@ -39,6 +41,8 @@ public class VehicleLoan extends Loan{
         this.maximumAge = maximumAge;
     }
 
+    //Read task's description more carefully (newInterestRate = oldInterestRate * coefficient).
+    //I would also suggest replacing if-then-else with switch.
     public void setInterestRate(BigDecimal interestRate){
         if(getRiskType() == LoanRiskType.HIGH_RISK){
             this.interestRate = BigDecimal.valueOf(1.5);
